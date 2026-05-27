@@ -1,0 +1,233 @@
+---
+import { getCollection } from 'astro:content';
+
+// Buscamos os projetos configurados no Markdown (se houver)
+const projetosRaw = await getCollection('projetos');
+// Ordenação garantida pelos nomes dos arquivos (01, 02, 03, 04)
+const projetos = projetosRaw.sort((a, b) => a.id.localeCompare(b.id));
+
+// Base de 4 projetos com a ordem e os textos revisados
+const dadosMockup = [
+    {
+        titulo: "Plataforma de Reconhecimento e Meritocracia",
+        resumo: "Sistema integrado para descentralizar e automatizar indicações de mérito e bonificação corporativa.",
+        competencias: ["Power Apps", "Power Automate", "SharePoint", "Low-Code Design"],
+        desafio: "O processo de indicação para reconhecimento era manual e descentralizado, gerando burocracia excessiva e falta de transparência nas aprovações.",
+        abordagem: "Construção de uma aplicação customizada integrada a fluxos automatizados de aprovação hierárquica. Implementação de camada de governança baseada em permissões.",
+        resultados: "Automatização completa do fluxo, eliminando planilhas paralelas e garantindo 100% de conformidade com as regras de cargos e salários."
+    },
+    {
+        titulo: "Framework Estratégico: Turnover de Alta Performance",
+        resumo: "Análise analítica integrada focado na retenção estratégica de talentos críticos e posições-chave.",
+        competencias: ["Power BI", "Excel", "DAX", "People Analytics"],
+        desafio: "A organização enfrentava perda recorrente de colaboradores de alta performance sem visibilidade sobre os fatores de risco que motivavam a saída voluntária.",
+        abordagem: "Cruzamento de dados de engajamento, avaliação de desempenho e tempo de casa. Desenvolvimento de regras de RLS para segurança de dados sensíveis.",
+        resultados: "Identificação dos principais drivers de turnover voluntário, reduzindo em 30% a perda de talentos-chave no trimestre seguinte."
+    },
+    {
+        titulo: "Analytics de Comunicação Interna e Engajamento",
+        resumo: "Centralização de dados fragmentados e modelagem de comportamento de consumo de informações corporativas.",
+        competencias: ["Power BI", "Power Automate", "API Integration", "n8n"],
+        desafio: "Dificuldade em mensurar a efetividade da comunicação interna devido à fragmentação de dados entre API e planilhas manuais.",
+        abordagem: "Integração híbrida de dados via API e automações de ingestão. Criação de matrizes de calor para identificar janelas de pico de atenção.",
+        resultados: "Otimização do cronograma de disparos e eliminação do esforço manual de consolidação de dados."
+    },
+    {
+        titulo: "Framework Analítico de Criticidade e Elegibilidade",
+        resumo: "Score multicritério integrado a modelo preditivo para otimização de ciclos de mérito.",
+        competencias: ["Python", "XGBoost", "Power BI", "Predictive Analytics"],
+        desafio: "Decisões de mérito e promoção dependiam de interpretações subjetivas, dificultando a priorização de colaboradores estratégicos.",
+        abordagem: "Modelagem estatística em Python para identificar vetores de risco e definição de pesos baseados em evidências históricas.",
+        resultados: "Criação de uma matriz prescritiva de tomada de decisão, eliminando vieses e otimizando a alocação do orçamento de retenção."
+    }
+];
+
+type ProjetoCard = {
+    titulo: string;
+    resumo: string;
+    competencias: string[];
+    desafio: string;
+    abordagem: string;
+    resultados: string;
+    id?: string;
+};
+
+const projetosExibicao: ProjetoCard[] = projetos.length > 0 ? projetos.map((p, idx) => {
+    const data = p.data as Record<string, any>;
+    return {
+        titulo: data?.titulo || dadosMockup[idx]?.titulo,
+        resumo: data?.resumoCard || dadosMockup[idx]?.resumo,
+        competencias: data?.competencias || dadosMockup[idx]?.competencias,
+        desafio: data?.desafio || dadosMockup[idx]?.desafio,
+        abordagem: data?.abordagem || dadosMockup[idx]?.abordagem,
+        resultados: data?.resultados || dadosMockup[idx]?.resultados,
+        id: p.id
+    };
+}) : dadosMockup;
+---
+
+<html lang="pt-BR" class="scroll-smooth">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Lucas da Hora — Portfolio</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+        <style>
+            body { font-family: 'Inter', sans-serif; }
+            h1, h2, h3, h4, .font-display { font-family: 'Space Grotesk', sans-serif; }
+        </style>
+    </head>
+    <body class="bg-[#F8FAFC] text-slate-800 min-h-screen font-sans antialiased">
+
+        <nav class="bg-[#0A1128]/95 border-b border-slate-800/60 py-4 px-6 sticky top-0 z-50 backdrop-blur-md transition-all duration-300">
+            <div class="max-w-5xl mx-auto flex justify-between items-center">
+                <div class="flex items-center gap-2 font-bold text-white text-lg group cursor-pointer font-display">
+                    <span class="text-[#9D4EDD] group-hover:scale-110 transition-transform duration-300">📈</span> Lucas da Hora<span class="text-slate-400 font-normal group-hover:text-[#9D4EDD] transition-colors duration-300">.Portfolio</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                    <a href="#projetos" class="hover:text-[#9D4EDD] transition-colors duration-300 relative pb-1">Projetos</a>
+                    <a href="#especialidades" class="hover:text-[#9D4EDD] transition-colors duration-300 relative pb-1">Especialidades</a>
+                    <a href="#contato" class="hover:text-[#9D4EDD] transition-colors duration-300 relative pb-1">Contato</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="bg-[#0A1128] text-white py-24 px-6 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-[#0D1B3E] via-[#0A1128] to-[#050A1A] opacity-80"></div>
+            
+            <header class="max-w-5xl mx-auto grid md:grid-cols-12 gap-12 items-center relative z-10">
+                <div class="md:col-span-8 text-center md:text-left space-y-6">
+                    <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                        Transformando dados de pessoas em <span class="bg-gradient-to-r from-[#9D4EDD] to-[#C77DFF] bg-clip-text text-transparent">decisões estratégicas</span>.
+                    </h1>
+                    <h2 class="text-lg md:text-xl font-medium text-slate-400">
+                        Data Analyst | People Analytics & Automação de Processos
+                    </h2>
+                    <p class="text-base text-slate-400 leading-relaxed max-w-xl mx-auto md:mx-0 font-normal">
+                        Desenvolvo soluções analíticas e fluxos automatizados que integram performance, remuneração e retenção de talentos, eliminando a burocracia de processos manuais.
+                    </p>
+                    <div class="pt-2">
+                        <a href="#contato" class="inline-flex items-center gap-2 bg-[#7B2CBF] text-white font-semibold px-8 py-3.5 rounded-xl hover:bg-[#6A24A3] hover:-translate-y-0.5 transition-all duration-300 shadow-lg w-full justify-center sm:w-auto group">
+                            Entre em Contato <span class="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 flex justify-center">
+                    <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-slate-800/80 shadow-2xl bg-[#101F42] relative group">
+                        <img src="/images/lucas-perfil.JPG" alt="Lucas da Hora" class="w-full h-full object-cover object-top filter grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" />
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <main id="projetos" class="max-w-5xl mx-auto px-6 py-20">
+            <div class="space-y-4">
+                {projetosExibicao.map((projeto, index) => (
+                    <div class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden transition-all duration-300 hover:border-slate-200">
+                        <details class="group">
+                            <summary class="flex justify-between items-start p-6 cursor-pointer list-none select-none">
+                                <div class="pr-6 space-y-2">
+                                    <p class="text-[10px] font-bold text-purple-400 uppercase tracking-widest font-display">CASO DE ESTUDO 0{index + 1}</p>
+                                    <h4 class="text-2xl font-bold text-slate-900 tracking-tight group-hover:text-[#7B2CBF] transition-colors duration-300">{projeto.titulo}</h4>
+                                    <div class="text-slate-500 text-sm md:text-base leading-relaxed">{projeto.resumo}</div>
+                                    <div class="flex flex-wrap gap-2 pt-3">
+                                        {projeto.competencias.map((comp) => (
+                                            <span class="text-xs font-semibold px-3 py-1 bg-purple-50/60 text-[#7B2CBF] rounded-md border border-purple-100/70 shadow-sm">{comp}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div class="text-slate-400 group-open:rotate-180 transition-transform duration-300 pt-2 shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" /></svg>
+                                </div>
+                            </summary>
+                            <div class="px-6 pb-6 pt-5 border-t border-slate-100 bg-slate-50/40 space-y-6">
+                                <div class="space-y-1.5">
+                                    <h5 class="text-sm font-semibold text-[#7B2CBF] flex items-center gap-2 font-display"><span>🛈</span> Problema</h5>
+                                    <p class="text-slate-600 text-sm md:text-base leading-relaxed pl-5">{projeto.desafio}</p>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <h5 class="text-sm font-semibold text-[#7B2CBF] flex items-center gap-2 font-display"><span>🎯</span> Abordagem Analítica</h5>
+                                    <p class="text-slate-600 text-sm md:text-base leading-relaxed pl-5">{projeto.abordagem}</p>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <h5 class="text-sm font-semibold text-[#7B2CBF] flex items-center gap-2 font-display"><span>📈</span> Resultados & Impacto</h5>
+                                    <p class="text-slate-600 text-sm md:text-base leading-relaxed pl-5">{projeto.resultados}</p>
+                                </div>
+                                <div class="pt-3 pl-5">
+                                    <a href={projeto.id ? `/projetos/${projeto.id}` : "#"} class="inline-flex items-center gap-1.5 bg-[#7B2CBF] text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-[#6A24A3] transition-all shadow-sm">Ver documentação completa ↗</a>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                ))}
+            </div>
+        </main>
+
+        <section id="especialidades" class="max-w-5xl mx-auto px-6 pb-24">
+            <div class="text-center mb-12">
+                <h3 class="text-xl font-bold text-slate-900 mb-1">Especialidades Técnicas</h3>
+                <div class="w-8 h-0.5 bg-[#7B2CBF] mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <div class="text-2xl mb-4">📊</div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-4">Data Analytics</h4>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>- Power BI & DAX</li>
+                        <li>- SQL para modelagem e consulta</li>
+                        <li>- Python aplicado à análise</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <div class="text-2xl mb-4">⚙️</div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-4">Automação & Integração</h4>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>- Power Automate</li>
+                        <li>- Power Apps</li>
+                        <li>- Integração de APIs e ingestão</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <div class="text-2xl mb-4">🧠</div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-4">Estratégia & People Analytics</h4>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>- Métricas de retenção e performance</li>
+                        <li>- Frameworks de priorização</li>
+                        <li>- Inteligência operacional (RH)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                    <div class="text-2xl mb-4">🤖</div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-4">AI-Assisted Workflows</h4>
+                    <ul class="text-xs text-slate-500 space-y-2">
+                        <li>- Fluxos assistidos por IA</li>
+                        <li>- Prototipação acelerada</li>
+                        <li>- IA aplicada à produtividade</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contato" class="bg-[#F8FAFC] py-24 px-6 text-center border-t border-slate-200/60">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <h3 class="text-4xl font-bold text-[#0A1128] tracking-tight">Contato</h3>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-3 pt-4">
+                    <a href="mailto:lucassh26@gmail.com" class="inline-flex items-center gap-2 bg-[#7B2CBF] text-white font-semibold text-sm px-6 py-3 rounded-xl hover:bg-[#6A24A3] transition-all w-full sm:w-auto justify-center">lucassh26@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/lucas-da-hora/" target="_blank" class="inline-flex items-center gap-2 bg-white border border-slate-200 text-slate-700 font-semibold text-sm px-6 py-3 rounded-xl hover:bg-slate-50 transition-all w-full sm:w-auto justify-center">LinkedIn</a>
+                </div>
+                <div class="pt-16 text-xs text-slate-400">© 2026 · Lucas Souza da Hora</div>
+            </div>
+        </footer>
+    </body>
+</html>
