@@ -22,7 +22,7 @@ A solução foi arquitetada sob o princípio de **fonte única da verdade**, seg
 * **Motor de Automação (Backend):** Fluxos otimizados no **Power Automate** encarregados pelo processamento em segundo plano, notificações contextuais e a esteira de geração documental.
 * **Camada Analítica (Business Intelligence):** Um painel em **Power BI** integrado às bases históricas de People Analytics para controle orçamentário e análise de trajetórias de cargos e salários.
 
-<img src="/images/arquitetura-sistema.png" alt="Fluxograma de Funcionamento e Integração da Solução" />
+<img src="/portfolio/images/arquitetura-sistema.png" alt="Fluxograma de Funcionamento e Integração da Solução" />
 <small>Figura 1: Fluxograma detalhado da arquitetura e integração ponta a ponta do ecossistema da solução.</small>
 
 ---
@@ -37,7 +37,7 @@ O maior diferencial técnico do projeto reside no modelo de **Governança Unific
 ### 📊 Central de Propostas e Interface Transacional
 Para garantir a usabilidade das lideranças, o ecossistema conta com uma interface operacional fluida, mapeando o perfil completo do colaborador, travas automáticas de elegibilidade com base no ciclo avaliativo, score de risco de saída e o painel transacional de inputs de méritos e promoções.
 
-<img src="/images/sistema-home-cadastro.png" alt="Interface de Cadastro de Propostas" />
+<img src="/portfolio/images/sistema-home-cadastro.png" alt="Interface de Cadastro de Propostas" />
 <small>Figura 2: Tela operacional do sistema integrada para simulação e envio de inputs de mérito e promoção pelas lideranças.</small>
 
 A solução suporta duas formas de entrada para o reconhecimento: valor nominal e percentual. Quando o usuário informa um valor nominal, o aplicativo calcula o percentual equivalente; quando informa um percentual, o aplicativo calcula o valor monetário correspondente, tratando explicitamente separadores decimais e arredondamentos controlados antes de persistir a diferença real frente ao orçamento.
@@ -50,13 +50,13 @@ Na camada de Business Intelligence, os dados operacionais são consolidados para
 #### Visão de Equipe (Cockpit Estratégico)
 Permite aos gestores e Business Partners avaliarem a estrutura de talentos de forma unificada, identificando o tempo médio de casa, o quadrante de risco de saída da área e o tempo decorrido desde a última alteração salarial ou de cargo do time.
 
-<img src="/images/sistema-analise-time.png" alt="Dashboard Cockpit da Liderança" />
+<img src="/portfolio/images/sistema-analise-time.png" alt="Dashboard Cockpit da Liderança" />
 <small>Figura 3: Visão consolidada do time (Cockpit da Liderança) exibindo métricas de distribuição em faixas salariais, tempo de função e score de retenção.</small>
 
 #### Visão Individual (Linha do Tempo de Evolução)
 Para suportar comitês de calibração salarial, o painel disponibiliza o detalhamento histórico por colaborador. Essa funcionalidade permite auditar a trajetória cronológica de cargos e salários, cruzando movimentações passadas com notas de avaliações de desempenho anteriores.
 
-<img src="/images/sistema-historico-individual.png" alt="Dashboard de Análise Individual do Colaborador" />
+<img src="/portfolio/images/sistema-historico-individual.png" alt="Dashboard de Análise Individual do Colaborador" />
 <small>Figura 4: Módulo de análise individual exibindo a linha do tempo da evolução salarial e histórico de parametrização técnica do profissional selecionado.</small>
 
 ---

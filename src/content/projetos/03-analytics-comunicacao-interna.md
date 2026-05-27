@@ -13,7 +13,7 @@ Embora a organização fizesse uso de plataformas modernas de comunicação, as 
 * **Eficácia de Canal:** Qual plataforma apresentava melhor aderência para determinados perfis de comunicados?
 * **Padrões Temporais:** Quais os melhores horários e dias da semana para maximizar a taxa de leitura e o engajamento real?
 
-O maior desafio técnico do projeto residia na **extrema fragmentação das fontes de dados**. A API da plataforma de comunicação fornecia apenas parte das métricas brutas de interação. Atributos altamente estratégicos — como a categorização temática dos comunicados, campanhas específicas e tags organizacionais — dependiam de processos manuais e planilhas operacionais em Excel. O desafio não era criar apenas visualizações, mas sim arquitetar um ecossistema capaz de unificar essas fontes e transformar logs operacionais em inteligência corporativa.
+O maior desafio técnico do projeto residia na **extrema fragmentação das fontes de dados**. A API da plataforma de comunicação fornecia apenas parte das métricas brutas de interação. Atributos altamente estratégicos — como a categorização temática dos comunicados, campanhas específicas e tags organizacionais — dependiam de processos manuais e planilhas operacionais em Excel. O desafio não era criar apenas visualizações, mas sim arquitetar um ecossistema capaz de unificar essas fontes e transformar logs operacionais in inteligência corporativa.
 
 ---
 
@@ -30,7 +30,7 @@ O modelo foi projetado para calcular métricas avançadas de engajamento longitu
 ### 📊 Inteligência Visual e Comportamento Organizacional
 O design do painel foi projetado para fornecer visões tanto táticas (para o time de comunicação planejar campanhas) quanto executivas (para a diretoria avaliar o alinhamento cultural).
 
-<img src="/images/analytics-comunicacao.png" alt="Dashboard de Analytics de Comunicação Interna e Engajamento" />
+<img src="/portfolio/images/analytics-comunicacao.png" alt="Dashboard de Analytics de Comunicação Interna e Engajamento" />
 <small>Figura 1: Cockpit central de análise de engajamento, exibindo matriz de calor por horário de visualização e segmentação por tipo de interação.</small>
 
 #### Matriz de Calor e Distribuição Temporal

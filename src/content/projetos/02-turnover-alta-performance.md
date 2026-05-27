@@ -18,7 +18,7 @@ Até então, a liderança executiva enfrentava um cenário de baixa visibilidade
 ### 🛠️ Alinhamento Metodológico e Regras de Negócio
 Para garantir a consistência matemática e a aceitação do indicador pelas lideranças, o primeiro passo foi estruturar a governança do cálculo. O **Turnover HP** foi normalizado dividindo o volume de desligamentos desse público pelo headcount médio da população elegível dentro do período correspondente.
 
-<img src="/images/turnover-metodologia-calculo.png" alt="Metodologia e Regras de Negócio do Turnover HP" />
+<img src="/portfolio/images/turnover-metodologia-calculo.png" alt="Metodologia e Regras de Negócio do Turnover HP" />
 <small>Figura 1: Definição conceitual da fórmula, tratamento de ciclos avaliativos semestrais e critérios de expurgo de dados.</small>
 
 Para o cálculo acumulado anual, a engenharia de dados superou a fragilidade de apenas tirar a média entre o início e o fim do ano. Como o número de colaboradores elegíveis se altera a cada ciclo de avaliação, o motor de cálculo foi configurado para **somar e consolidar os resultados mensais**, garantindo que cada colaborador seja avaliado estritamente dentro do contexto vigente do seu respectivo ciclo.
@@ -31,16 +31,16 @@ Na camada de inteligência do Power BI, o projeto foi estruturado sob o conceito
 #### Visão de Linha do Tempo e Detalhamento de Contexto
 A interface disponibiliza um cockpit completo contendo a quebra do turnover anual acumulado dividido entre movimentações **Voluntárias** (iniciativa do colaborador) e **Involuntárias** (iniciativa da empresa). Uma tabela matricial de auditoria no rodapé abre o passo a passo do cálculo mensal, permitindo total transparência dos dados agregados.
 
-<img src="/images/turnover-dashboard-geral.png" alt="Cockpit Geral de Evolução do Turnover HP" />
+<img src="/portfolio/images/turnover-dashboard-geral.png" alt="Cockpit Geral de Evolução do Turnover HP" />
 <small>Figura 2: Dashboard de acompanhamento longitudinal do turnover dividindo comportamento voluntário e involuntário com matriz de auditoria.</small>
 
 #### Auditoria Nominal de Movimentações (Drill-Down Operacional)
 Para suportar a atuação dos Business Partners (BPs) de Gente & Cultura, o framework conta com módulos operacionais de detalhamento nominais. Filtrando um mês específico de referência, o sistema quebra o banco de dados em duas visões complementares: a relação nominal de colaboradores HP que fecharam ativos no período e a listagem de profissionais desligados, explicitando o gestor imediato e o centro de custo.
 
-<img src="/images/turnover-colaboradores-ativos.png" alt="Relação de Colaboradores HP Ativos por Mês" />
+<img src="/portfolio/images/turnover-colaboradores-ativos.png" alt="Relação de Colaboradores HP Ativos por Mês" />
 <small>Figura 3: Interface operacional de auditoria de colaboradores de alta performance ativos em meses selecionados.</small>
 
-<img src="/images/turnover-colaboradores-desligados.png" alt="Relação de Colaboradores HP Desligados por Mês" />
+<img src="/portfolio/images/turnover-colaboradores-desligados.png" alt="Relação de Colaboradores HP Desligados por Mês" />
 <small>Figura 4: Módulo de detalhamento de desligamentos de talentos-chave para apoio a comitês de governança e reposição de vagas.</small>
 
 ---
@@ -48,7 +48,7 @@ Para suportar a atuação dos Business Partners (BPs) de Gente & Cultura, o fram
 ### 🔮 Capacidade Preditiva: Projeção de Séries Temporais
 O maior diferencial analítico do projeto reside na camada preditiva implementada na visão executiva. Utilizando algoritmos de previsão baseados em padrões históricos, o modelo estende a linha temporal para períodos futuros.
 
-<img src="/images/turnover-projecao.png" alt="Projeção de Turnover de Alta Performance" />
+<img src="/portfolio/images/turnover-projecao.png" alt="Projeção de Turnover de Alta Performance" />
 <small>Figura 5: Gráfico de tendência preditiva com projeção de série temporal e sombreamento de intervalo de confiança estatístico.</small>
 
 Essa funcionalidade não foca em adivinhar valores absolutos exatos, mas sim em **fornecer uma leitura de tendência geral** (estável, ascendente ou descendente). Isso blinda a tomada de decisão, permitindo que a diretoria antecipe riscos de perda de talentos em períodos de alta sazonalidade antes que eles se consolidem no realizado.
