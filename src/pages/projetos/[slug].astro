@@ -4,10 +4,9 @@ import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   const projetos = await getCollection('projetos');
   return projetos.map(p => {
-    // Garante que o slug não carregue a extensão do arquivo, limpando caminhos para o roteador do Astro
-    const slugLimpo = p.id.replace(/\.[^/.]+$/, "");
+    // Com o glob loader, o p.id já vem limpo (ex: "01-sistema-reconhecimento")
     return {
-      params: { slug: slugLimpo },
+      params: { slug: p.id },
       props: { project: p },
     };
   });
