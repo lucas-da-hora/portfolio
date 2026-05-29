@@ -3,6 +3,9 @@ titulo: "Framework Analítico de Criticidade e Elegibilidade"
 objetivo: "Construção de score multicritério integrado a modelo preditivo para otimização de ciclos de reconhecimento e retenção estratégica."
 resumoCard: "Desenvolvimento de um framework preditivo e prescritivo que combina análise estatística de dados e modelagem no Power BI para pontuar o risco de saída de colaboradores, eliminando a subjetividade em comitês de calibração salarial."
 competencias: ["Data Science (Python)", "Power BI", "Score Multicritério", "People Analytics", "Predictive Analytics"]
+desafio: "Eliminar a subjetividade em comitês de calibração salarial e prever com precisão o risco de saída de colaboradores."
+abordagem: "Desenvolvimento de um score multicritério integrado a um modelo preditivo utilizando análise estatística e Python."
+resultados: "Otimização de ciclos de reconhecimento e fornecimento de insights prescritivos para ações de retenção estratégica."
 ---
 
 ### 🔍 O Cenário e os Desafios de Negócio

@@ -3,6 +3,9 @@ titulo: "Framework Estratégico: Turnover de Alta Performance (HP)"
 objetivo: "Modelagem analítica avançada e inteligência de dados aplicada à retenção de talentos-chave e populações críticas."
 resumoCard: "Desenvolvimento de um framework analítico no Power BI para monitoramento de turnover in populações críticas, aplicando tratamento de exceções, modelagem temporal expandida e lógicas em DAX para isolar comportamentos estruturais de oscilações pontuais."
 competencias: ["Power BI", "Data Modeling", "DAX Avançado", "People Analytics", "Strategic HR"]
+desafio: "Análise cirúrgica de desligamentos em populações críticas (HP) superando falhas de modelos homogêneos tradicionais."
+abordagem: "Modelagem em DAX avançado com tratamento de sazonalidade, inteligência temporal e expurgo de movimentações internas."
+resultados: "Transformação do indicador em ferramenta de governança estratégica para o C-Level e Business Partners."
 ---
 
 ### 🔍 O Cenário e os Desafios de Negócio

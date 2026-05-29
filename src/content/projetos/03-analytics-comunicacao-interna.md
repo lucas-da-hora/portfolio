@@ -3,6 +3,9 @@ titulo: "Analytics de Comunicação Interna e Engajamento Organizacional"
 objetivo: "Centralização de dados fragmentados e modelagem de comportamento de consumo de informações corporativas."
 resumoCard: "Construção de uma solução de inteligência de dados integrando APIs, automações via Power Automate e Power BI para mapear o engajamento, matrizes de calor de visualização e o comportamento de consumo de canais internos."
 competencias: ["Power BI", "Power Automate", "API Integration", "Data Modeling", "Internal Communications"]
+desafio: "Centralizar dados fragmentados de múltiplos canais corporativos e mapear o comportamento real de consumo de informações."
+abordagem: "Integração de APIs e automações via Power Automate para estruturar matrizes de calor e visões longitudinais de engajamento."
+resultados: "Fornecimento de diagnósticos preditivos e de leitura comportamental para otimizar as estratégias de canais internos."
 ---
 
 ### 🔍 O Cenário e os Desafios de Negócio
